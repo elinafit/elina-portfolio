@@ -29,10 +29,24 @@
 
   /* HERO */
   .hero{
-    padding:56px 0 40px;
+    padding:0 0 40px;
     text-align:center;
     background:linear-gradient(180deg,#f7e9e2 0%, var(--cream) 100%);
     border-bottom:1px solid var(--line);
+  }
+  .hero-photo{
+    width:100%;
+    height:min(62vw, 420px);
+    min-height:280px;
+    overflow:hidden;
+    background:linear-gradient(145deg,#e7c3b6,#cf8e78);
+    margin-bottom:30px;
+  }
+  .hero-photo img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
   }
   .badge{
     display:inline-block;
@@ -46,18 +60,6 @@
     border-radius:999px;
     margin-bottom:26px;
   }
-  .photo-frame{
-    width:168px;height:168px;
-    margin:0 auto 22px;
-    border-radius:50%;
-    background:linear-gradient(145deg,#e7c3b6,#cf8e78);
-    display:flex;align-items:center;justify-content:center;
-    box-shadow:0 10px 28px rgba(181,101,79,0.28);
-    overflow:hidden;
-    border:4px solid #fff;
-    position:relative;
-  }
-  .photo-frame svg{width:72px;height:72px;opacity:.85;}
   h1.name{
     font-size:34px;
     letter-spacing:.02em;
@@ -211,13 +213,12 @@
 <body>
 
   <div class="hero">
+    <div class="hero-photo">
+      <!-- За да се покаже снимката: запази я като "elina.jpg" (с малки букви, точно това име) в същата папка, в която качваш този HTML файл -->
+      <img src="elina.jpg" alt="Елина Пицина" onerror="this.style.display='none'">
+    </div>
     <div class="wrap">
       <span class="badge">🏅 СЕРТИФИЦИРАН ТРЕНЬОР · EUFA</span>
-      <div class="photo-frame">
-        <!-- За да се покаже снимката: запази я като "elina.jpg" в същата папка, в която качваш този HTML файл -->
-        <img src="elina.jpg" alt="Елина Пицина" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none'">
-        <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.4"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"/></svg>
-      </div>
       <h1 class="name">ЕЛИНА ПИЦИНА</h1>
       <p class="role">Треньор · Експерт по хранене и здраве</p>
       <p class="hook">Повече от тренировки. Истинска грижа за тялото на жената — във всеки етап от живота.</p>
