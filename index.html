@@ -27,35 +27,30 @@
   .wrap{max-width:760px;margin:0 auto;padding:0 20px;}
   a{color:inherit;}
 
-  /* HERO — full-screen banner, but photo always shown WHOLE (no cropping) */
-  .hero{
-    position:relative;
-    min-height:100vh;
+  /* PHOTO BANNER — separate from text, full photo always visible, no cropping */
+  .photo-banner{
+    width:100%;
+    height:min(105vw, 720px);
+    min-height:380px;
+    background:linear-gradient(145deg,#e7c3b6,#cf8e78);
     display:flex;
     align-items:center;
     justify-content:center;
-    text-align:center;
     overflow:hidden;
-    background:linear-gradient(145deg,#e7c3b6,#cf8e78);
   }
-  .hero-photo-bg{
-    position:absolute;
-    inset:0;
+  .photo-banner img{
     width:100%;
     height:100%;
     object-fit:contain;
-    z-index:0;
+    display:block;
   }
-  .hero-overlay{
-    position:absolute;
-    inset:0;
-    background:linear-gradient(180deg, rgba(40,28,24,0.42) 0%, rgba(35,25,22,0.8) 100%);
-    z-index:1;
-  }
-  .hero-content{
-    position:relative;
-    z-index:2;
-    padding:40px 20px;
+
+  /* HERO TEXT — plain background, always readable */
+  .hero{
+    padding:34px 0 44px;
+    text-align:center;
+    background:linear-gradient(180deg,#f7e9e2 0%, var(--cream) 100%);
+    border-bottom:1px solid var(--line);
   }
   .badge{
     display:inline-block;
@@ -67,26 +62,25 @@
     letter-spacing:.04em;
     padding:7px 16px;
     border-radius:999px;
-    margin-bottom:26px;
+    margin-bottom:18px;
   }
   h1.name{
-    font-size:40px;
+    font-size:34px;
     letter-spacing:.02em;
-    margin:0 0 8px;
-    color:#ffffff;
-    text-shadow:0 2px 18px rgba(0,0,0,0.35);
+    margin:0 0 6px;
+    color:var(--ink);
   }
   .role{
-    font-size:17px;
+    font-size:16px;
     font-weight:600;
-    color:#f3d6c8;
+    color:var(--rose-dark);
     margin:0 0 18px;
   }
   .hook{
     max-width:480px;
     margin:0 auto 28px;
     font-size:16px;
-    color:rgba(255,255,255,0.9);
+    color:var(--ink-soft);
   }
   .cta-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
   .btn{
@@ -222,10 +216,12 @@
 </head>
 <body>
 
+  <div class="photo-banner">
+    <img src="elina.jpg" alt="Елина Пицина" onerror="this.parentElement.style.display='none'">
+  </div>
+
   <div class="hero">
-    <img src="elina.jpg" alt="Елина Пицина" class="hero-photo-bg" onerror="this.style.display='none'">
-    <div class="hero-overlay"></div>
-    <div class="wrap hero-content">
+    <div class="wrap">
       <span class="badge">🏅 СЕРТИФИЦИРАН ТРЕНЬОР · EUFA</span>
       <h1 class="name">ЕЛИНА ПИЦИНА</h1>
       <p class="role">Треньор · Експерт по хранене и здраве</p>
