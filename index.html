@@ -27,29 +27,30 @@
   .wrap{max-width:760px;margin:0 auto;padding:0 20px;}
   a{color:inherit;}
 
-  /* HERO */
+  /* HERO — full-screen photo background, like the old Fit Body site */
   .hero{
-    padding:0 0 40px;
-    text-align:center;
-    background:linear-gradient(180deg,#f7e9e2 0%, var(--cream) 100%);
-    border-bottom:1px solid var(--line);
-  }
-  .hero-photo{
-    width:100%;
-    height:min(120vw, 680px);
-    min-height:440px;
-    overflow:hidden;
-    background:linear-gradient(145deg,#e7c3b6,#cf8e78);
-    margin-bottom:30px;
+    position:relative;
+    min-height:100vh;
     display:flex;
     align-items:center;
     justify-content:center;
+    text-align:center;
+    overflow:hidden;
+    background-image:url('elina.jpg'), linear-gradient(145deg,#e7c3b6,#cf8e78);
+    background-size:cover, cover;
+    background-position:center, center;
+    background-repeat:no-repeat, no-repeat;
   }
-  .hero-photo img{
-    width:100%;
-    height:100%;
-    object-fit:contain;
-    display:block;
+  .hero-overlay{
+    position:absolute;
+    inset:0;
+    background:linear-gradient(180deg, rgba(40,28,24,0.42) 0%, rgba(35,25,22,0.8) 100%);
+    z-index:1;
+  }
+  .hero-content{
+    position:relative;
+    z-index:2;
+    padding:40px 20px;
   }
   .badge{
     display:inline-block;
@@ -64,22 +65,23 @@
     margin-bottom:26px;
   }
   h1.name{
-    font-size:34px;
+    font-size:40px;
     letter-spacing:.02em;
-    margin:0 0 6px;
-    color:var(--ink);
+    margin:0 0 8px;
+    color:#ffffff;
+    text-shadow:0 2px 18px rgba(0,0,0,0.35);
   }
   .role{
-    font-size:16px;
+    font-size:17px;
     font-weight:600;
-    color:var(--rose-dark);
+    color:#f3d6c8;
     margin:0 0 18px;
   }
   .hook{
     max-width:480px;
-    margin:0 auto 28px;
+    margin:0 auto 30px;
     font-size:16px;
-    color:var(--ink-soft);
+    color:rgba(255,255,255,0.9);
   }
   .cta-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
   .btn{
@@ -216,11 +218,8 @@
 <body>
 
   <div class="hero">
-    <div class="hero-photo">
-      <!-- За да се покаже снимката: запази я като "elina.jpg" (с малки букви, точно това име) в същата папка, в която качваш този HTML файл -->
-      <img src="elina.jpg" alt="Елина Пицина" onerror="this.style.display='none'">
-    </div>
-    <div class="wrap">
+    <div class="hero-overlay"></div>
+    <div class="wrap hero-content">
       <span class="badge">🏅 СЕРТИФИЦИРАН ТРЕНЬОР · EUFA</span>
       <h1 class="name">ЕЛИНА ПИЦИНА</h1>
       <p class="role">Треньор · Експерт по хранене и здраве</p>
