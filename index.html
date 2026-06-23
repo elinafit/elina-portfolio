@@ -27,30 +27,49 @@
   .wrap{max-width:760px;margin:0 auto;padding:0 20px;}
   a{color:inherit;}
 
-  /* PHOTO BANNER — separate from text, full photo always visible, no cropping */
-  .photo-banner{
-    width:100%;
-    height:min(105vw, 720px);
-    min-height:380px;
-    background:linear-gradient(145deg,#e7c3b6,#cf8e78);
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    overflow:hidden;
-  }
-  .photo-banner img{
-    width:100%;
-    height:100%;
-    object-fit:contain;
-    display:block;
-  }
-
-  /* HERO TEXT — plain background, always readable */
+  /* HERO — photo and text side by side on desktop, stacked on mobile */
   .hero{
-    padding:34px 0 44px;
+    padding:50px 0;
     text-align:center;
     background:linear-gradient(180deg,#f7e9e2 0%, var(--cream) 100%);
     border-bottom:1px solid var(--line);
+  }
+  .hero .wrap{max-width:920px;}
+  .hero-flex{
+    display:flex;
+    flex-wrap:wrap;
+    align-items:center;
+    justify-content:center;
+    gap:36px;
+  }
+  .hero-photo-col{
+    flex:1 1 320px;
+    max-width:380px;
+    width:100%;
+  }
+  .photo-frame{
+    width:100%;
+    aspect-ratio:2/3;
+    overflow:hidden;
+    border-radius:22px;
+    background:linear-gradient(145deg,#e7c3b6,#cf8e78);
+    box-shadow:0 16px 34px rgba(181,101,79,0.20);
+  }
+  .photo-frame img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+  }
+  .hero-text-col{
+    flex:1 1 360px;
+    max-width:440px;
+    text-align:center;
+  }
+  @media(min-width:700px){
+    .hero-flex{justify-content:flex-start;text-align:left;}
+    .hero-text-col{text-align:left;}
+    .hero-text-col .cta-row{justify-content:flex-start;}
   }
   .badge{
     display:inline-block;
@@ -77,10 +96,13 @@
     margin:0 0 18px;
   }
   .hook{
-    max-width:480px;
+    max-width:420px;
     margin:0 auto 28px;
     font-size:16px;
     color:var(--ink-soft);
+  }
+  @media(min-width:700px){
+    .hook{margin:0 0 28px;}
   }
   .cta-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
   .btn{
@@ -216,19 +238,24 @@
 </head>
 <body>
 
-  <div class="photo-banner">
-    <img src="elina.jpg" alt="Елина Пицина" onerror="this.parentElement.style.display='none'">
-  </div>
-
   <div class="hero">
     <div class="wrap">
-      <span class="badge">🏅 СЕРТИФИЦИРАН ТРЕНЬОР · EUFA</span>
-      <h1 class="name">ЕЛИНА ПИЦИНА</h1>
-      <p class="role">Треньор · Експерт по хранене и здраве</p>
-      <p class="hook">Повече от тренировки. Истинска грижа за тялото на жената — във всеки етап от живота.</p>
-      <div class="cta-row">
-        <a href="#offer" class="btn btn-primary">FIT BODY — групови тренировки</a>
-        <a href="tel:+359897575981" class="btn btn-secondary">Обади се</a>
+      <div class="hero-flex">
+        <div class="hero-photo-col">
+          <div class="photo-frame">
+            <img src="elina.jpg" alt="Елина Пицина" onerror="this.closest('.hero-photo-col').style.display='none'">
+          </div>
+        </div>
+        <div class="hero-text-col">
+          <span class="badge">🏅 СЕРТИФИЦИРАН ТРЕНЬОР · EUFA</span>
+          <h1 class="name">ЕЛИНА ПИЦИНА</h1>
+          <p class="role">Треньор · Експерт по хранене и здраве</p>
+          <p class="hook">Повече от тренировки. Истинска грижа за тялото на жената — във всеки етап от живота.</p>
+          <div class="cta-row">
+            <a href="#offer" class="btn btn-primary">FIT BODY — групови тренировки</a>
+            <a href="tel:+359897575981" class="btn btn-secondary">Обади се</a>
+          </div>
+        </div>
       </div>
     </div>
   </div>
