@@ -27,49 +27,12 @@
   .wrap{max-width:760px;margin:0 auto;padding:0 20px;}
   a{color:inherit;}
 
-  /* HERO — photo and text side by side on desktop, stacked on mobile */
+  /* HERO — text on top, row of photos below */
   .hero{
-    padding:50px 0;
+    padding:46px 0 50px;
     text-align:center;
     background:linear-gradient(180deg,#f7e9e2 0%, var(--cream) 100%);
     border-bottom:1px solid var(--line);
-  }
-  .hero .wrap{max-width:920px;}
-  .hero-flex{
-    display:flex;
-    flex-wrap:wrap;
-    align-items:center;
-    justify-content:center;
-    gap:36px;
-  }
-  .hero-photo-col{
-    flex:1 1 320px;
-    max-width:380px;
-    width:100%;
-  }
-  .photo-frame{
-    width:100%;
-    aspect-ratio:2/3;
-    overflow:hidden;
-    border-radius:22px;
-    background:linear-gradient(145deg,#e7c3b6,#cf8e78);
-    box-shadow:0 16px 34px rgba(181,101,79,0.20);
-  }
-  .photo-frame img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    display:block;
-  }
-  .hero-text-col{
-    flex:1 1 360px;
-    max-width:440px;
-    text-align:center;
-  }
-  @media(min-width:700px){
-    .hero-flex{justify-content:flex-start;text-align:left;}
-    .hero-text-col{text-align:left;}
-    .hero-text-col .cta-row{justify-content:flex-start;}
   }
   .badge{
     display:inline-block;
@@ -96,13 +59,10 @@
     margin:0 0 18px;
   }
   .hook{
-    max-width:420px;
-    margin:0 auto 28px;
+    max-width:480px;
+    margin:0 auto 26px;
     font-size:16px;
     color:var(--ink-soft);
-  }
-  @media(min-width:700px){
-    .hook{margin:0 0 28px;}
   }
   .cta-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
   .btn{
@@ -124,6 +84,31 @@
     background:#fff;
     color:var(--rose-dark);
     border:1px solid var(--line);
+  }
+
+  /* PHOTO ROW — several photos side by side */
+  .photo-row{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:12px;
+    max-width:640px;
+    margin:34px auto 0;
+  }
+  .photo-frame{
+    aspect-ratio:2/3;
+    overflow:hidden;
+    border-radius:16px;
+    background:linear-gradient(145deg,#e7c3b6,#cf8e78);
+    box-shadow:0 10px 24px rgba(181,101,79,0.18);
+  }
+  .photo-frame img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+  }
+  @media(max-width:480px){
+    .photo-row{gap:8px;}
   }
 
   /* SECTION GENERIC */
@@ -240,21 +225,23 @@
 
   <div class="hero">
     <div class="wrap">
-      <div class="hero-flex">
-        <div class="hero-photo-col">
-          <div class="photo-frame">
-            <img src="elina.jpg" alt="Елина Пицина" onerror="this.closest('.hero-photo-col').style.display='none'">
-          </div>
+      <span class="badge">🏅 СЕРТИФИЦИРАН ТРЕНЬОР · EUFA</span>
+      <h1 class="name">ЕЛИНА ПИЦИНА</h1>
+      <p class="role">Треньор · Експерт по хранене и здраве</p>
+      <p class="hook">Повече от тренировки. Истинска грижа за тялото на жената — във всеки етап от живота.</p>
+      <div class="cta-row">
+        <a href="#offer" class="btn btn-primary">FIT BODY — групови тренировки</a>
+        <a href="tel:+359897575981" class="btn btn-secondary">Обади се</a>
+      </div>
+      <div class="photo-row">
+        <div class="photo-frame">
+          <img src="elina1.jpg" alt="Елина Пицина" onerror="this.parentElement.style.display='none'">
         </div>
-        <div class="hero-text-col">
-          <span class="badge">🏅 СЕРТИФИЦИРАН ТРЕНЬОР · EUFA</span>
-          <h1 class="name">ЕЛИНА ПИЦИНА</h1>
-          <p class="role">Треньор · Експерт по хранене и здраве</p>
-          <p class="hook">Повече от тренировки. Истинска грижа за тялото на жената — във всеки етап от живота.</p>
-          <div class="cta-row">
-            <a href="#offer" class="btn btn-primary">FIT BODY — групови тренировки</a>
-            <a href="tel:+359897575981" class="btn btn-secondary">Обади се</a>
-          </div>
+        <div class="photo-frame">
+          <img src="elina2.jpg" alt="Елина Пицина" onerror="this.parentElement.style.display='none'">
+        </div>
+        <div class="photo-frame">
+          <img src="elina3.jpg" alt="Елина Пицина" onerror="this.parentElement.style.display='none'">
         </div>
       </div>
     </div>
